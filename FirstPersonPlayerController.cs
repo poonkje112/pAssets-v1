@@ -1,9 +1,5 @@
-﻿using System;
-
-namespace com.poonkje.Player
+﻿namespace com.poonkje.Player
 {
-    using System.Collections;
-    using System.Collections.Generic;
     using UnityEngine;
 
     [System.Serializable]
