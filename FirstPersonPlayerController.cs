@@ -5,7 +5,7 @@
     [System.Serializable]
     class ClampAxis
     {
-        public float negative  = -45, positive = 45;
+        public float negative, positive;
     }
 
     [RequireComponent(typeof(Rigidbody))]
@@ -15,7 +15,7 @@
         float movementSpeed = 1f;
 
         [SerializeField] float sensitivity = 3f;
-        [SerializeField] ClampAxis clampAxis;
+        [SerializeField] ClampAxis clampAxis = new ClampAxis() {negative = -45, positive = 45};
         [SerializeField] Camera playerCamera;
         [SerializeField] bool overrideRigidbodySettings = true;
         Collider _Collider;
@@ -33,9 +33,9 @@
 
             if (playerCamera == null && !TryFindMainCamera(out playerCamera))
             {
-                GameObject cameraObject = new GameObject("PlayerCamera") {tag = "Main Camera"};
+                GameObject cameraObject = new GameObject("PlayerCamera") {tag = "MainCamera"};
                 Camera cam = cameraObject.AddComponent<Camera>();
-                cam.orthographic = true;
+                cam.orthographic = false;
                 playerCamera = cam;
             }
 
